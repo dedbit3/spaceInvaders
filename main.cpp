@@ -61,11 +61,17 @@ int main() {
   // print version
   printf("OpenGl Version: %i.%i\n", glVersion[0], glVersion[1]);
 
-  /* MAIN GAME LOOP */
+  // set color buffer black
   glClearColor(0.0, 0.0, 0.0, 1.0); 
+
+  /* MAIN GAME LOOP */
   while(!glfwWindowShouldClose(window)) {
+    // update game
+    // draw game
+    // draw window
     glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(window);
+    // poll events
     glfwPollEvents();
   }
 
