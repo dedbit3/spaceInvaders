@@ -67,14 +67,16 @@ int main(int argc, char **argv) {
   // set color buffer black
   glClearColor(0.0, 0.0, 0.0, 1.0); 
 
+  // paint window black
+  glClear(GL_COLOR_BUFFER_BIT);
+  glfwSwapBuffers(window);
+ 
   /* START MENU LOOP */
   while(!glfwWindowShouldClose(window)) {
-    // paint screen black
-    glClear(GL_COLOR_BUFFER_BIT);
-    glfwSwapBuffers(window);
     // paint menu
-    render_menu(window);
-    
+    render_menu();
+    glfwSwapBuffers(window);
+    // poll events
     glfwPollEvents();
   }
 

@@ -13,6 +13,6 @@
 /* STRUCTS */
 
 /* PROTOTYPES */
-void render_menu(GLFWwindow *window);
+void render_menu();
 
 #endif
