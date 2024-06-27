@@ -17,7 +17,7 @@ void error_callback(int error, const char *description) {
 }
 
 /* MAIN */
-int main() {
+int main(int argc, char **argv) {
 
   /* SET CALLBACK FUNC */
   glfwSetErrorCallback(error_callback);
@@ -33,6 +33,9 @@ int main() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+  /* INIT GLUT */
+  glutInit(&argc, argv);
 
   /* CREATE WINDOW */
   GLFWwindow *window = glfwCreateWindow(900, 900, "Space Invaders", NULL, NULL);
@@ -63,6 +66,17 @@ int main() {
 
   // set color buffer black
   glClearColor(0.0, 0.0, 0.0, 1.0); 
+
+  /* START MENU LOOP */
+  while(!glfwWindowShouldClose(window)) {
+    // paint screen black
+    glClear(GL_COLOR_BUFFER_BIT);
+    glfwSwapBuffers(window);
+    // paint menu
+    render_menu(window);
+    
+    glfwPollEvents();
+  }
 
   /* MAIN GAME LOOP */
   while(!glfwWindowShouldClose(window)) {
